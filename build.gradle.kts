@@ -39,13 +39,14 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
-springBoot {
-	mainClass.set( "com.example.ktskull.KtskullApplicationKt")
-}
-//tasks.withType<Jar> {
-//	manifest {
-//		attributes["Main-Class"] = "com.example.ktskull.KtskullApplicationKt"
-//	}
+//springBoot {
+//	mainClass.set( "com.example.ktskull.KtskullApplicationKt")
+//}
+
+tasks.withType<Jar> {
+	manifest {
+		attributes["Main-Class"] = "com.example.ktskull.KtskullApplicationKt"
+	}
 //	// To avoid the duplicate handling strategy error
 //	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 //
@@ -56,4 +57,4 @@ springBoot {
 //	from({
 //		configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
 //	})
-//}
+}
