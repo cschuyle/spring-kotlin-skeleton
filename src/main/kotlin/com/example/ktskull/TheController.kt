@@ -11,6 +11,6 @@ class TheController {
 
     @GetMapping
     fun theEndpoint() : String {
-        return "You have arrived";
+        return "Success! You have arrived"
     }
 }
