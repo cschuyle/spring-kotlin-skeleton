@@ -6,8 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest
 @SpringBootTest
 class KtskullApplicationTests {
 
-	@Test
-	fun contextLoads() {
-	}
-
+    @Test
+    fun contextLoads() {
+    }
 }
