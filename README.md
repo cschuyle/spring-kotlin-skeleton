@@ -13,10 +13,36 @@ As a template or starter for a larger webapp, with nontrivial, yet minimal, depe
 
 To test deployment to various cloud providers.
 
+## Requirements
+
+- Java 21
+- Access to a PostgreSQL database connection credentials
+
+## Building and Running
+
+1. Copy envrc-template to a file (`.envrc` is already in .gitignore, so that's safe) and fill-in the missing credentials.
+
+2. Set the environment variables.
+   ```console
+   source .envrc
+   ```
+   
+2. Build.
+   ```console
+   ./gradlew build
+   ```
+
+3. Run.
+   ```console
+   ./gradlew bootRun
+   ```
+
+4. Visit the running app at <http://localhost:8080>.
+
 ## Roadmap
 
-- Add Security
-- Add a frontend (e.g. React)
+- Add Spring Security.
+- Add a frontend (e.g. React).
 
 ## Issues
 
