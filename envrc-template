@@ -1,0 +1,21 @@
+# This file can be used to set up your env vars to run locally.
+# You will need access to credentials to a PostgreSQL database 0 either local or in the cloud.
+#
+# Usage:
+# You can need to copy this to another file (for example .envrc, which is in .gitignore,
+# so that's a little safer than editing it in place), then edit the credentials to be your own.
+# Then source the file (source .envrc) to set the env vars before runninf the app.
+
+host='PSQ_HOST_NAME'
+database='PSQL_DATABASE_NAME'
+user='PSQL_USERNAME'
+port=PSQL_PORT
+password='PSQL_PASSWORD'
+
+# These are the env vars for Spring
+export SPRING_DATASOURCE_URL="jdbc:postgresql://$host/$database"
+export SPRING_DATASOURCE_USERNAME="$user"
+export SPRING_DATASOURCE_PASSWORD="$password"
+
+# This is the DB URI - not for Spring, but for other stuff
+export PSQL_URI="postgres://$user:$password@host:$port/$database"
