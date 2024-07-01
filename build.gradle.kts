@@ -46,3 +46,9 @@ tasks.withType<Jar> {
         attributes["Main-Class"] = "com.example.ktskull.AppKt"
     }
 }
+
+// Disable generation of plain jar - it comnfuses poor old Heroku unless you use a Procfile (override the startup command)
+// See https://docs.spring.io/spring-boot/gradle-plugin/packaging.html#packaging-executable.and-plain-archives
+tasks.named("jar") {
+    enabled = false
+}
