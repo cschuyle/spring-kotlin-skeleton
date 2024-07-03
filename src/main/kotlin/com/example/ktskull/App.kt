@@ -1,4 +1,4 @@
-	package com.example.ktskull
+package com.example.ktskull
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
