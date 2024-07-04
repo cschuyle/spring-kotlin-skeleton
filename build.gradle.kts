@@ -66,7 +66,7 @@ tasks.withType<Test> {
 // It confuses poor old Heroku unless you use a Procfile (override the startup command),
 // because Heroku uses build.libs/*.jar as its target for the java -jar command.
 // See https://docs.spring.io/spring-boot/gradle-plugin/packaging.html#packaging-executable.and-plain-archives
-//tasks.named("jar") {
-//    enabled = false
-//}
+tasks.named("jar") {
+    enabled = false
+}
 
