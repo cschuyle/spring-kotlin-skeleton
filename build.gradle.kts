@@ -19,12 +19,19 @@ repositories {
 }
 
 dependencies {
+    // Biolerplate
     implementation("org.jetbrains.kotlin:kotlin-stdlib:2.0.0")
-    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    runtimeOnly("org.postgresql:postgresql")
+
+    // Database
+    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+    runtimeOnly("com.h2database:h2")
+    // See envrc-template
+    // runtimeOnly("org.postgresql:postgresql")
+
+    // Test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("com.ninja-squad:springmockk:4.0.2")
@@ -41,22 +48,25 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-// Don't do this - it breaks the executable jar (results in main ClassNotFound).
-//    tasks.withType<Jar> {
-//        manifest {
-//            attributes["Main-Class"] = "com.example.ktskull.AppKt"
-//        }
-//    }
+// #### The below SHOULD not be necessary, but for some reason I have resorted to it in the past.
 
-// Use this instead of tasks,withType<Jar>
-springBoot {
-    mainClass.set("com.example.ktskull.AppKt")
-}
+// ## Set main entrypoint
+//// Don't do this - it breaks the executable jar (results in main ClassNotFound).
+////    tasks.withType<Jar> {
+////        manifest {
+////            attributes["Main-Class"] = "com.example.ktskull.AppKt"
+////        }
+////    }
+//// Use this instead of tasks,withType<Jar>
+//springBoot {
+//    mainClass.set("com.example.ktskull.AppKt")
+//}
 
-// Disable generation of plain jar - it confuses poor old Heroku unless you use a Procfile (override the startup command),
+// ## Disable generation of plain jar
+// It confuses poor old Heroku unless you use a Procfile (override the startup command),
 // because Heroku uses build.libs/*.jar as its target for the java -jar command.
 // See https://docs.spring.io/spring-boot/gradle-plugin/packaging.html#packaging-executable.and-plain-archives
-tasks.named("jar") {
-    enabled = false
-}
+//tasks.named("jar") {
+//    enabled = false
+//}
 

@@ -6,16 +6,19 @@
 # so that's a little safer than editing it in place), then edit the credentials to be your own.
 # Then source the file (source .envrc) to set the env vars before running the app.
 
-host='PSQL_HOST_NAME'
-database='PSQL_DATABASE_NAME'
-user='PSQL_USERNAME'
-port=PSQL_PORT
-password='PSQL_PASSWORD'
-
-# These are the env vars for Spring
-export SPRING_DATASOURCE_URL="jdbc:postgresql://$host/$database"
-export SPRING_DATASOURCE_USERNAME="$user"
-export SPRING_DATASOURCE_PASSWORD="$password"
-
-# This is the DB URI - not for Spring, but for other stuff
-export PSQL_URI="postgres://$user:$password@host:$port/$database"
+# If you use a real database instead of h2, you need creds.
+# Uncomment postgres dependency an comment h2 dependency in build.gradle.kts, and the below:
+#
+# host='PSQL_HOST_NAME'
+# database='PSQL_DATABASE_NAME'
+# user='PSQL_USERNAME'
+# port=PSQL_PORT
+# password='PSQL_PASSWORD'
+#
+# # These are the env vars for Spring
+# export SPRING_DATASOURCE_URL="jdbc:postgresql://$host/$database"
+# export SPRING_DATASOURCE_USERNAME="$user"
+# export SPRING_DATASOURCE_PASSWORD="$password"
+#
+# # This is the DB URI - not for Spring, but for other stuff
+# export PSQL_URI="postgres://$user:$password@host:$port/$database"
